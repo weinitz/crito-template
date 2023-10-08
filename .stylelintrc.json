@@ -1,0 +1,57 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-recess-order",
+    "stylelint-config-html",
+    "stylelint-prettier/recommended",
+    "stylelint-config-prettier-scss"
+
+  ],
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-prettier",
+    "stylelint-selector-bem-pattern",
+    "stylelint-declaration-block-no-ignored-properties",
+    "stylelint-plugin-logical-css",
+    "stylelint-color-format",
+    "stylelint-plugin-defensive-css"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "**/*.scss"
+      ],
+      "customSyntax": "postcss-scss"
+    },
+    {
+      "files": [
+        "**/*.html"
+      ],
+      "customSyntax": "postcss-html"
+    }
+  ],
+  "rules": {
+    "plugin/selector-bem-pattern": {
+      "componentName": "[A-Z]+",
+      "componentSelectors": {
+        "initial": "^\\.{componentName}(?:-[a-z]+)?$",
+        "combined": "^\\.combined-{componentName}-[a-z]+$"
+      },
+      "utilitySelectors": "^\\.util-[a-z]+$"
+    },
+    "prettier/prettier": true,
+    "plugin/declaration-block-no-ignored-properties": true,
+    "plugin/use-logical-properties-and-values": [
+      true,
+      { "severity": "warning" }
+    ],
+    "plugin/use-logical-units": [true, { "severity": "warning" }],
+    "color-format/format": {
+      "format": "hsl"
+    }
+  },
+  "processors": [],
+  "defaultSeverity": "warning",
+  "ignoreDisables": false
+}

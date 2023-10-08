@@ -1,0 +1,6 @@
+{
+  "customSyntax": "postcss-scss",
+  "plugins": {
+    "autoprefixer": {}
+  }
+}
