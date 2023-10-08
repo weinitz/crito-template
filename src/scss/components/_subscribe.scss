@@ -1,0 +1,31 @@
+#subscribe {
+  h5 {
+    @include font-size(45px);
+
+    margin-right: 130px;
+    font-weight: $font-weight-bold;
+    white-space: nowrap;
+  }
+
+  input {
+    padding-left: 43px;
+    color: $section-subscribe-input-color;
+    border-radius: 25px;
+  }
+}
+
+.subscribe-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /*
+  @include respond-to(max-width) {
+    flex-direction: row;
+  }*/
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 13px;
+}

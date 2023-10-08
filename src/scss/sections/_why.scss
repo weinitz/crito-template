@@ -1,0 +1,38 @@
+#why {
+  /*  .list-group {
+
+  } */
+
+  .list-group-item {
+    padding-left: 0;
+    border: 0;
+
+    /*   i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    font-size: 27px;
+    inline-size: 3ch;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    } */
+  }
+}
+
+.list-group-icon {
+  display: flex;
+  align-items: center;
+
+  i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 3ch;
+    aspect-ratio: 1;
+    font-size: 3ch;
+//    border: 1px solid $icon-circle-border-color;
+    border-radius: 50%;
+  }
+}
+

@@ -1,0 +1,33 @@
+.card--team-list {
+  @include card-list(4, 10px);
+  @include scroll-snap(4, 10px);
+}
+
+.card--team {
+  @include card;
+
+  //  margin: 2.588rem 1.875rem 3rem 0;
+  //  padding: 2.953rem 1.875rem 3rem;
+  //  padding: 44px 26px;
+
+  &__text {
+    @extend %text;
+
+    margin-top: 10px;
+    margin-bottom: 11ch;
+  }
+
+  &:hover {
+    background-color: $card-service-hover-bg-color;
+
+    &__text {
+      color: $card-service-hover-text-color;
+    }
+
+    &__link > .icon-arrow-right::after {
+      color: $button-tertiary-text-color;
+      background-color: $button-tertiary-bg-color;
+      border-color: $white;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+.card--service-list {
+  @include card-list(4, 10px);
+  @include regular-card-list(4, 10px);
+}
+
+.card--service {
+  @include card;
+
+  padding: 44px 26px;
+
+  //  margin: 2.588rem 1.875rem 3rem 0;
+  //  padding: 2.953rem 1.875rem 3rem;
+  //  padding: 44px 26px;
+
+  &__line {
+    inline-size: 40px;
+    block-size: 2px;
+    margin-block-end: 20px;
+    background-color: $card-line-color;
+  }
+
+  &__text {
+    @extend %text;
+
+    margin-block-start: 10px;
+    margin-block-end: 11ch;
+  }
+
+  &:hover {
+    background-color: $card-service-hover-bg-color;
+
+    &__text {
+      color: $card-service-hover-text-color;
+    }
+
+    @include respond-to(tab-port-sm) {
+      &__link > .icon-arrow-right::after {
+        color: $button-tertiary-text-color;
+        background-color: $button-tertiary-bg-color;
+        border-color: $white;
+      }
+    }
+  }
+
+  @include respond-to(tab-port-sm) {
+    &__link > .icon-arrow-right {
+      position: absolute;
+      inset-block-end: 44px;
+      inset-inline-end: 26px;
+      color: hsl(0deg 0% 100%);
+
+      &::before {
+        position: absolute;
+        inset-block-end: 1rem;
+        inset-inline-end: 1rem;
+        z-index: 2;
+        color: hsl(0deg 0% 100%);
+      }
+
+      &::after {
+        position: absolute;
+        inset-block-end: 0;
+        inset-inline-end: 0;
+        inline-size: 3rem;
+        color: hsl(0deg 0% 100%);
+        content: '';
+        background-color: hsl(0deg 0% 0%);
+        border-radius: 50%;
+        block-size: 3rem;
+      }
+    }
+  }
+}

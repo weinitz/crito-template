@@ -1,0 +1,18 @@
+.project-and-cases {
+//  gap: 30px;
+  gap: 1.875rem;
+
+  .card > .card__button {
+    font-weight: $font-weight-medium;
+    border: 0;
+    @include font-size(14px);
+  }
+
+  .card > .card__title {
+    @extend .headline-secondary;
+    @include padding-top(35px);
+    @include padding-bottom(16px);
+
+    border-bottom: 2px solid $project-headline-border-color;
+  }
+}

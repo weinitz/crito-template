@@ -1,0 +1,194 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+.footer__link::before {
+  position: absolute;
+  left: -30px;
+  font-family: crito-icons;
+  content: "'\e800'";
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.footer__link:hover::before {
+  opacity: 1;
+}
+
+.footer {
+  grid-area: footer;
+  justify-items: center;
+  color: $footer-text-color;
+  text-align: center;
+  background-color: $footer-bg-color;
+
+  &__main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2rem;
+    justify-content: center;
+    text-align: center;
+
+    @include respond-to(tab-port-sm) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include respond-to(max-width) {
+      grid-template-columns: repeat(6, 1fr);
+      text-align: left;
+    }
+  }
+
+  &__info {
+    display: none;
+    grid-column: span 2;
+
+    // > svg
+
+    @include respond-to(tab-land) {
+      display: block;
+      padding-right: 2rem;
+    }
+  }
+
+  &__links {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .link {
+    position: relative;
+  }
+
+  .link-item + .link-item {
+    margin-top: initial;
+  }
+
+  .link-item .link:hover::before {
+    opacity: 1;
+  }
+
+  &__link {
+    position: relative;
+    color: $footer-link-color;
+  }
+
+  &__link:hover {
+    color: $footer-link-hover-color;
+  }
+
+  &__box-title {
+    margin-bottom: 1em;
+    margin-bottom: 41px;
+    font-family: $font-family-primary;
+    font-size: 22px;
+    font-weight: 700;
+    color: $footer-box-title-color;
+  }
+
+  &__border {
+    border-color: $footer-border-color;
+  }
+
+  &__bottom {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    border-top: 1px solid $footer-border-color;
+
+    .container {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__social-media-bar {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  @include respond-to(max-width) {
+    .container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__social-media-link {
+    margin-left: 16px;
+    color: $footer-social-media-link-color;
+
+    &:hover {
+      color: $footer-link-hover-color;
+    }
+  }
+
+  .footer-box,
+  .copyright,
+  .social-media-links {
+    grid-column: span 1;
+  }
+}
+
+/*
+.footer__main {
+  @include respond-to("'tab-land'") {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+    align-items: center;
+    justify-items: left;
+    padding-top: 7vh;
+    padding-bottom: 7vh;
+    text-align: start;
+
+    .footer-info {
+      display: none;
+      padding-right: initial;
+    }
+
+    .box-title {
+      font-size: initial;
+    }
+
+    .link .footer-info {
+      font-size: initial;
+    }
+
+    .link-item + .link-item {
+      margin-top: initial;
+    }
+
+    .copyright,
+    .footer-box,
+    .social-media-links {
+      grid-column: span 1;
+    }
+  }
+
+  @include respond-to("'big-desktop'") {
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 3.6rem;
+    align-items: start;
+    padding-top: 14vh;
+    padding-bottom: 8vh;
+
+    .box-title {
+      margin-bottom: 1.5em;
+    }
+
+    .link-item + .link-item {
+      margin-top: 1em !important;
+    }
+
+    .footer-info {
+      display: block;
+      padding-right: 2rem;
+    }
+
+    .copyright,
+    .footer-box,
+    .social-media-links {
+      grid-column: span 1;
+    }
+  }
+}
+*/

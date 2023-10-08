@@ -1,0 +1,215 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.header {
+  grid-area: header;
+  background-color: $header-bg-color;
+
+  @include respond-to(tab-land) {
+    height: 120px;
+  }
+
+  &__nav {
+    padding-top: 3px;
+  }
+
+  &__menu__nav {
+    margin-top: 4px;
+  }
+
+  &__btn-login {
+    grid-area: btn;
+    @include respond-to(tab-port-sm) {
+      //      padding-top: 0 !important;
+      //      padding-bottom: 0 !important;
+      margin: 0;
+    }
+  }
+
+  @include padding-top($header-padding-top);
+
+  &__container {
+    display: grid;
+
+    //    grid-template-areas: 'logo bars', 'cib cib', 'social social';
+    grid-template-areas:
+      'social bars'
+      'logo cib';
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
+    align-items: start;
+
+    // place-items: center;
+    justify-items: stretch;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    @include respond-to(tab-port-sm) {
+      grid-template-areas:
+        'cib cib btn'
+        'logo menu social';
+      grid-template-columns: auto auto auto;
+    }
+
+    @include respond-to(tab-land) {
+      grid-template-areas:
+        'logo cib social'
+        'logo menu btn';
+      grid-template-columns: auto 1fr auto;
+
+      //      justify-items: center;
+
+      // row-gap: $header-container-row-gap;
+    }
+  }
+
+  &__hamburger {
+    grid-area: bars;
+    justify-self: end;
+    font-size: 40px;
+
+    @include respond-to(tab-port-sm) {
+      display: none;
+    }
+  }
+
+  &__logo {
+    grid-area: logo;
+    margin-inline-end: 70px;
+  }
+
+  &__menu {
+    display: none;
+    grid-area: menu;
+    align-items: center;
+    justify-content: space-between;
+
+    @include respond-to(tab-port-sm) {
+      display: flex;
+    }
+  }
+
+  &__nav-link {
+    position: relative;
+    display: inline-block;
+    margin-right: 35px;
+    color: $header-menu-link-color;
+    text-decoration: none;
+  }
+
+  &__social-media-bar {
+    display: flex;
+    grid-area: social;
+
+    @include respond-to(tab-land) {
+      display: flex;
+    }
+
+    &__item {
+      & + & {
+        margin-left: $margin-base;
+      }
+    }
+
+    .social-media-link {
+      font-size: $font-size-menu;
+      color: $header-menu-link-color;
+
+      &:hover {
+        color: $header-menu-link-hover-color;
+      }
+    }
+  }
+}
+
+.header__nav-link.active {
+  font-weight: $font-weight-medium;
+
+  &::after,
+  &:hover::after {
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 15px;
+    height: 2px;
+    font-weight: $font-weight-medium;
+    content: ' ';
+    background-color: $header-menu-link-color;
+    transform: translate(calc(50% - 15px));
+  }
+}
+
+.contact-information-bar,
+.header__social-media-bar {
+  //    padding-top: $header-menu-padding-top;
+  //    margin-top: $header-menu-margin-top;
+  padding-bottom: 13px;
+  border-bottom: 1px solid $header-border-color;
+}
+
+.contact-information-bar {
+  display: block;
+  grid-area: cib;
+  @include contact-info-text;
+
+  @include respond-to(tab-port-sm) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__item {
+    @include respond-to(tab-port-sm) {
+      & + & {
+        padding-left: 8px;
+        margin-left: 8px;
+        border-left: 1px solid $header-border-color;
+      }
+    }
+
+    @include respond-to(tab-land) {
+      & + & {
+        padding-left: 20px;
+        margin-left: 20px;
+      }
+    }
+  }
+
+  &__content-box {
+    //    font-family: $font-family-primary;
+    //    font-weight: $font-weight-light;
+    //    line-height: 1.6667;
+
+    //    line-height: 25px;
+    //    letter-spacing: 0;
+    // @include font-size($font-size-menu);
+
+    //@include contact-info;
+
+    & + & {
+      //      padding-left: 20px;
+      //      margin-left: 20px;
+      //      border-left: 1px solid $header-border-color;
+    }
+  }
+}
+
+.contact-information-bar__content-box {
+  & + & {
+  }
+}
+
+.social-media-link + .social-media-link {
+  margin-left: 15px;
+}
+
+main {
+  scroll-snap-type: y mandatory;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+#showcase {
+  scroll-snap-align: center;
+}

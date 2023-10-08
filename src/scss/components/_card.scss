@@ -1,0 +1,529 @@
+@function safe-calc($value) {
+  @if $value < 0 {
+    @return 0;
+  } @else {
+    @return $value;
+  }
+}
+
+@mixin card-list-grid($columns, $gap) {
+  grid-template-columns: repeat($columns, 1fr);
+  column-gap: $gap;
+}
+
+/**
+ * Mixin Name: card-list-columns
+ * Description: Defines the grid layout for a card list with a specified number of columns and gap.
+ *
+ * Parameters:
+ * - $columns: The number of columns in the grid.
+ * - $gap: The size of the gap between columns.
+ *
+ * Properties:
+ * - grid-auto-columns: Calculates the width of each column based on the number of columns and gap.
+ * - grid-column-gap: Sets the size of the gap between columns.
+ */
+@mixin card-list-columns($columns, $gap, $total: 7) {
+  grid-auto-columns: calc(calc(100% / $columns) - calc($gap * ($columns - 1)));
+  grid-column-gap: calc($columns * $gap);
+
+  @for $o from 1 through $total {
+    .card:nth-of-type(#{$o}):target
+      ~ &__indicators
+      > &__bullet:nth-child(#{$o}) {
+      opacity: 1;
+      transition: opacity 0.6s ease-in;
+    }
+
+    /*
+    @for $o from 1 through $total {
+      $q: calc($o - $columns);
+      .card:nth-of-type(#{$o}):target ~ &__indicators &__bullet {
+        display: block;
+        &:nth-child(n + #{calc($o + 1)}):nth-child(-n + #{$columns}),
+        &:nth-child(n + #{safe-calc($o - $columns)}):nth-child(
+            -n + #{calc($o - 1)}
+          ) {
+          display: none;
+        }
+      }
+    } */
+  }
+}
+
+@mixin scroll-snap($max-cards, $gap) {
+  //grid-template-areas: 'card' 'indicators';
+  grid-auto-columns: 100%;
+  grid-auto-flow: column;
+  overflow-inline: auto;
+  scroll-snap-type: inline mandatory;
+  scroll-behavior: smooth;
+
+  //  scroll-snap-type: x mandatory;
+  &__indicators {
+    position: sticky;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+
+    //    left: 50%;
+    display: flex;
+    grid-area: indicators;
+    grid-row: 2;
+
+    //    grid-row: 2;
+    //    grid-column: 1 / span 4;
+    //    place-content: center;
+    padding: 0;
+
+    //    margin-block-start: 77px;
+    list-style-type: none;
+    transform: translate(-50%, -50%);
+
+    //    transform: translateX(-50%);
+    &.--medium,
+    &.--large,
+    &.--extra-large {
+      display: none;
+    }
+
+    &.--small {
+      display: flex;
+    }
+  }
+
+  &__bullet {
+    display: block;
+    inline-size: 0.75rem;
+    margin: 0 0.25rem;
+    cursor: pointer;
+    background-color: $carousel-bullet-color;
+    border-radius: 50%;
+    opacity: 0.2;
+    block-size: 0.75rem;
+  }
+  @include card-list-columns(1, $gap, 4);
+
+  @media (width >= 500px) {
+    //grid-template-areas: 'card card' 'indicators indicators';
+    @include card-list-columns(calc($max-cards - 2), $gap, 4);
+
+    &__indicators {
+      &.--small,
+      &.--large,
+      &.--extra-large {
+        display: none;
+      }
+
+      &.--medium {
+        display: flex;
+      }
+    }
+  }
+
+  @media (width >= 700px) {
+    //grid-template-areas: 'card card card' 'indicators indicators indicators';
+    @include card-list-columns(calc($max-cards - 1), $gap, 4);
+
+    &__indicators {
+      &.--small,
+      &.--large,
+      &.--extra-large {
+        display: none;
+      }
+
+      &.--.large {
+        display: flex;
+      }
+    }
+  }
+
+  @media (width >= 1100px) {
+    //grid-template-areas: 'card card card card' 'indicators indicators indicators indicators';
+    @include card-list-columns($max-cards, $gap, 4);
+
+    &__indicators {
+      &.--small,
+      &.--medium,
+      &.--large {
+        display: none;
+      }
+
+      &.--extra-large {
+        display: flex;
+      }
+    }
+  }
+
+  .card {
+    @include card;
+
+    grid-row: 1;
+    scroll-snap-align: start;
+
+    %text {
+      @extend %text;
+
+      max-inline-size: 85%;
+      margin: 20px 0;
+    }
+  }
+}
+
+@mixin regular-card-list($max-cards, $gap) {
+  @include card-list-grid(1, $gap);
+
+  @include respond-to(phone) {
+    @include card-list-grid(calc($max-cards - 2), $gap);
+  }
+
+  @include respond-to(tab-port-sm) {
+    //grid-template-areas: 'card card card' 'indicators indicators indicators';
+    @include card-list-grid(calc($max-cards - 1), $gap);
+  }
+
+  @include respond-to(tab-land) {
+    //grid-template-areas: 'card card card card' 'indicators indicators indicators indicators';
+    @include card-list-grid($max-cards, $gap);
+  }
+
+  display: grid;
+  grid-column-gap: $gap;
+  padding: 25px 0;
+  list-style: none;
+}
+
+@mixin card-list($max-cards, $gap) {
+  /*
+  @include card-list-grid($max-cards, $gap);
+
+  @media (width >= 500px) {
+    //grid-template-areas: 'card card' 'indicators indicators';
+    @include card-list-grid(calc($max-cards - 2), $gap);
+  }
+
+  @media (width >= 700px) {
+    //grid-template-areas: 'card card card' 'indicators indicators indicators';
+    @includec card-list-grid(calc($max-cards - 1), $gap);
+  }
+
+  @media (width >= 1100px) {
+    //grid-template-areas: 'card card card card' 'indicators indicators indicators indicators';
+    @include card-list-grid($max-cards, $gap);
+  }
+*/
+  display: grid;
+  grid-column-gap: $gap;
+
+  //  padding: 25px 0;
+  list-style: none;
+}
+
+@mixin card {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  grid-area: 'card';
+  place-content: stretch;
+  place-items: stretch;
+  padding: 20px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  background: var(--white);
+
+  //box-shadow: 0 5px 15px $cod-gray-15;
+  transition: all 0.2s;
+
+  @include respond-to(tab-port) {
+    place-items: start;
+    padding: 0;
+    text-align: start;
+  }
+
+  &__image {
+    position: relative;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  // features, services, why, projects, teams (name), articles
+  &__title {
+    @include card-title;
+  }
+
+  %text {
+    //    padding-right: 20px;
+    //    padding-left: 20px;
+    @include text-primary;
+
+    max-inline-size: 85%;
+    margin: 20px 0;
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
+  }
+}
+
+/**
+ * This SCSS class defines the styling for a card list.
+ * It utilizes grid layout to create a responsive and organized display.
+ * The class provides various configurations based on the number of columns and screen size.
+ * Background colors are assigned to odd child elements for visual distinction.
+ * Responsive styles are included to adjust the layout and column configurations for different screen sizes.
+ */
+.card-list {
+  display: grid;
+  grid-area: card-list;
+
+  /* grid-column-gap: 1.875rem; */
+  grid-auto-columns: 1fr;
+
+  &--stack {
+    grid-auto-flow: row;
+  }
+
+  //repeat(auto-fill, minmax(calc(100% / 3), 1fr));
+
+  //grid-template-columns: 1fr;
+  //grid-column-gap: 1.875rem; // 30/16;
+
+  //  overflow-x: scroll;
+  //  scroll-snap-type: x mandatory;
+
+  > :nth-child(odd) {
+    background-color: $cararra;
+  }
+
+  @include respond-to(tab-port-sm) {
+    grid-row-gap: 1.875rem; // 30/16;
+    > .card {
+      background-color: transparent;
+    }
+
+    &--four,
+    &--two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &--three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /*
+  @include respond-to(max-width) {
+    &--four {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+*/
+  @include respond-to(big-desktop) {
+    &--four {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.card {
+  position: relative;
+  text-align: center;
+  transition: all 0.2s;
+  scroll-snap-align: start;
+  @include respond-to(tab-port) {
+    place-items: start;
+    padding: 0;
+    text-align: start;
+  }
+
+  &__image {
+    position: relative;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    margin-block-start: 10px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  &__text {
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+    font-size: 16px;
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.card--staff {
+  padding: 20px;
+
+  &__name {
+    margin-block-start: 10px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  &__job-title {
+    margin-block-start: 10px;
+    font-size: 16px;
+    color: $card-job-title-color;
+  }
+}
+
+.card--article {
+  &__date {
+    position: absolute;
+    inset-block-start: 10px;
+    inset-inline-start: 10px;
+    padding: 17px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: $card-badge-text-color;
+    text-align: center;
+    background-color: $card-badge-bg-color;
+    border-radius: 0.375rem;
+
+    .number {
+      display: block;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    &__topic {
+      margin-block-start: 10px;
+      font-size: 16px;
+      color: $card-topic-text-color;
+    }
+  }
+}
+
+/*
+.card--service {
+  padding: 44px 26px;
+
+  > .card__line {
+    width: 40px;
+    height: 2px;
+    margin-bottom: 20px;
+    background-color: $card-line-color;
+  }
+
+  > .card__text {
+    @extend .card__text;
+
+    margin-top: 10px;
+    margin-bottom: 11ch;
+  }
+
+  &:hover {
+    background-color: $card-service-hover-bg-color;
+
+    > .card__text {
+      color: $card-service-hover-text-color;
+    }
+
+    .card__link > .icon-arrow-right::after {
+      color: $button-tertiary-text-color;
+      background-color: $button-tertiary-bg-color;
+      border-color: $white;
+    }
+  }
+} */
+
+/*
+.card--feature {
+  border: 1px solid #0e1021;
+
+  &__icon {
+    position: relative;
+    width: 51px;
+    height: 43px;
+    margin-right: auto;
+    margin-bottom: 35px;
+    margin-left: auto;
+  }
+
+  &__subtitle {
+    margin-bottom: 13px;
+  }
+
+  &__text {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: $section-features-text-color;
+  }
+
+  @include respond-to(tab-port) {
+    padding: 25px 41px 31px;
+  }
+}
+*/
+// .card__link` class is used to create a link that covers the entire card element.
+
+/*
+.card__link > .icon-arrow-right {
+  position: absolute;
+  inset-block-end: 44px;
+  inset-inline-end: 26px;
+  color: hsl(0deg 0% 100%);
+
+  &::before {
+    position: absolute;
+    inset-block-end: 1rem;
+    inset-inline-end: 1rem;
+    z-index: 2;
+    color: hsl(0deg 0% 100%);
+  }
+
+  &::after {
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    inline-size: 3rem;
+    color: hsl(0deg 0% 100%);
+    content: '';
+    background-color: hsl(0deg 0% 0%);
+    border-radius: 50%;
+    block-size: 3rem;
+  }
+}
+
+section > .container > :not(.card-list) {
+  //-padding-right: 20px;
+  //-padding-left: 20px;
+  position: relative;
+}
+*/
+#about .info-box {
+  inset-block-end: 0;
+
+  //  inline-size: 100%;
+
+  // background-color: #beebff;
+  background-color: aliceblue;
+  opacity: 0.8;
+}
+
+.about .container {
+  flex-direction: column;
+}
+
+.about .image-box {
+  inline-size: 100%;
+}
+
+.about .info-box {
+  //inset-inline-start: -50px;
+  //transform: translateY(-50%);
+}

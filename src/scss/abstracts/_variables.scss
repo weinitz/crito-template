@@ -1,0 +1,294 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+// text i header + text mot vit bakgrund
+
+// $cod-gray: #191919; hsl(0deg 0% 10%); rgb(25, 25, 25)
+$cararra: hsl(51deg 19% 93%);
+$cod-gray: hsl(0deg 0% 10%);
+$cod-gray-10: hsl(0deg 0% 10% / 10%);
+$cod-gray-20: hsl(0deg 0% 10% / 20%);
+$cod-gray-50: hsl(0deg 0% 10% / 50%);
+$cod-gray-70: hsl(0deg 0% 10% / 70%);
+$cod-gray-80: hsl(0deg 0% 10% / 80%);
+$pomegranate: hsl(13deg 95% 54%);
+$onahau: hsl(198deg 100% 87%);
+$mine-shaft-15: hsl(0deg 0% 17% / 15%);
+$sweet-corn: hsl(43deg 91% 75%);
+$silver: hsl(0deg 0% 77%);
+$nevada: hsl(223deg 3% 43%);
+$white: hsl(0deg 0% 100%);
+$white-50: hsl(0deg 0% 100% / 50%);
+$white-70: hsl(0deg 0% 100% / 70%);
+$ebony: hsl(234deg 40% 9%);
+
+// Bakgrund i header
+// $cararra: #f0efe9; hsl(51deg 19% 93%);
+//$cararra: #f0efe9;
+
+// border i headern #dad9d3;
+$timberwolf: hsl(51deg 9% 84%);
+
+// bakgrund knapp #f9d783
+//$sweet-corn: #f9d783;
+
+// brand logos #a4a4a4
+$silver-chalice: hsl(0deg 0% 64%);
+
+// features-border-color #d1d1d1
+$alto: hsl(0deg 0% 82%);
+
+// $section-title-color #f94d1c
+//$pomegranate: #f94d1c;
+
+// $section-about-quote-bg-color:$onahau #beebff;
+//$onahau: #beebff;
+
+// $scorpion: #5e5e5e;
+$scorpion: hsl(0deg 0% 37%);
+
+// $hemlock: #5c5238;
+$hemlock: hsl(43deg 24% 29%);
+
+// $flax: #edcf86;
+$flax: hsl(43deg 74% 73%);
+
+// $ebony: #0e1021;
+$ebony: hsl(234deg 40% 9%);
+
+// $bombay: #b6b6bc;
+$bombay: hsl(240deg 4% 73%);
+
+// $bright-gray: #3e404d;
+$bright-gray: hsl(232deg 11% 27%);
+
+// $mercury: #e7e7e7;
+$mercury: hsl(0deg 0% 91%);
+
+// $boulder: #7c7c7c; inte från skiss
+$boulder: hsl(0deg 0% 49%);
+
+/// headlines (monospace) font family
+/// @type List
+$font-family-secondary: 'DM Sans', sans-serif;
+
+/// Regular font family
+/// @type List
+$font-family-primary: 'Inter', sans-serif;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 900;
+$font-size-base: 16px;
+$border-radius: 25px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$padding-base: 16px;
+$margin-base: 16px;
+$font-size-menu: 15px;
+$line-height-base: 1.5;
+$font-size-h1-showcase: 40px;
+$font-size-h1-md-showcase: 70px;
+$font-size-h1-lg-showcase: 86px;
+$font-size-p-showcase: 18px;
+$font-size-p-md-showcase: 20px;
+$margin-bottom-a-showcase: 20px;
+$margin-right-a-showcase: 10px;
+$margin-right-img-showcase: -50px;
+
+// Layout
+$text-color: $cod-gray;
+
+// header
+$header-padding-top: 16px;
+$header-container-row-gap: 21px;
+$header-menu-padding-top: 23.5px;
+$header-menu-margin-top: 13px;
+$header-bg-color: $cararra;
+$header-border-color: $timberwolf;
+$header-menu-link-color: $cod-gray;
+$header-menu-link-hover-color: $boulder;
+
+// footer
+$footer-bg-color: $ebony;
+$footer-text-color: $bombay;
+$footer-link-color: $bombay;
+$footer-link-hover-color: $bombay;
+$footer-border-color: $bright-gray;
+$footer-social-media-link-color: $white;
+$footer-box-title-color: $white;
+
+// buttons
+
+/*
+$button-default-text-color: $text-color;
+$button-default-bg-color: transparent;
+$button-primary-text-color: $text-color;
+$button-primary-bg-color: $sweet-corn;
+$button-secondary-text-color: $white;
+$button-secondary-bg-color: $cod-gray;
+$button-tertiary-text-color: $cod-gray;
+$button-tertiary-bg-color: $white;
+$button-large-padding: 15px 30px;
+$button-small-padding: 11px 26px;
+$button-font-weight: $font-weight-semi-bold;
+$button-large-font-size: $font-size-base;
+$button-medium-font-size: $font-size-base;
+$button-small-font-size: $font-size-base;
+*/
+$button-default-text-color: $text-color;
+$button-default-bg-color: transparent;
+$button-default-border-color: $text-color;
+$button-primary-text-color: $text-color;
+$button-primary-bg-color: $sweet-corn;
+$button-secondary-text-color: $white;
+$button-secondary-bg-color: $cod-gray;
+$button-tertiary-text-color: $cod-gray;
+$button-tertiary-bg-color: $white;
+$button-large-padding: 15px 30px;
+$button-small-padding: 11px 26px;
+$button-font-weight: $font-weight-semi-bold;
+$button-large-font-size: $font-size-base;
+$button-medium-font-size: $font-size-base;
+$button-small-font-size: $font-size-base;
+$button-default-border-radius: 40px;
+
+// card
+$card-badge-text-color: $scorpion;
+$card-badge-bg-color: $sweet-corn;
+$card-line-color: $cod-gray;
+$card-topic-text-color: $scorpion;
+$card-service-hover-bg-color: $sweet-corn;
+$card-service-hover-text-color: $hemlock;
+$card-job-title-color: $hemlock;
+
+// carousel
+$carousel-bullet-color: $cod-gray;
+
+// section specific
+$section-title-color: $pomegranate;
+$section-showcase-bg-color: $cararra;
+$section-brands-bg-color: $white;
+
+// Features
+$section-features-bg-color: $white;
+$section-features-text-color: $scorpion;
+$section-features-border-color: $alto;
+$features-width: 1520px;
+$features-height: 600px;
+$features-border-radius: 2px;
+$features-background: hsl(0deg 0% 100%);
+$features-border: 1.2px solid rgb(25 25 25 / 20%);
+$features-padding-top: 117px;
+$features-padding-right: 317px;
+$features-padding-bottom: 117px;
+$features-padding-left: 148px;
+
+//$features-text-box-width: 460px;
+$features-text-box-width: 28.75rem;
+$features-text-box-height: 303.09px;
+$features-column-gap: 122px;
+
+//$features-column-gap: 6.438rem;
+$features-boxes-column-gap: 45px;
+$features-section-title-margin-bottom: 25px;
+$features-section-headline-margin-bottom: 61px;
+$features-boxes-width: 307px * 2;
+$features-boxes-height: 220px * 3;
+$features-boxes-padding: 34px 58px 46px 58px;
+
+//$feature-box-width: 307px;
+$feature-box-width: 18rem;
+$feature-box-height: 220px;
+$feature-box-icon-width: 53px;
+$feature-box-icon-height: 46px; // Notera att denna variabel redan har definierats ovan
+$feature-box-icon-margin-bottom: 0;
+$feature-box-title-margin-bottom: 0; //20px;
+$features-button-width: 460px;
+
+// why
+$section-why-bg-color: $white;
+$section-why-icon-border-color: $mercury;
+
+// about
+$section-about-bg-color: $white;
+$section-about-quote-bg-color: $onahau;
+
+// services
+$section-services-bg-color: $cararra;
+$section-services-card-bg-color: $white;
+$section-services-card-text-color: $scorpion;
+$section-services-card-hover-text-color: $hemlock;
+$section-services-card-hover-bg-color: $sweet-corn;
+
+// articles
+$section-articles-bg-color: $white;
+$section-articles-card-text-color: $scorpion;
+$section-articles-card-bg-color: $white;
+$section-articles-card-button-hover-bg-color: $white;
+
+// team
+$section-team-bg-color: $flax;
+
+// project
+$project-headline-border-color: $mercury;
+
+// icons
+$icon-star-color: $pomegranate;
+
+// subscribe
+$section-subscribe-bg-color: $cararra;
+$section-subscribe-input-color: $scorpion;
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1520px;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  'phone-xs': 20em,
+  // 0 - 320px
+  'phone': 37.5em,
+  // 0 - 600px
+  'tab-port-sm': 48em,
+  // 768px
+  'tab-port': 56.25em,
+  // 900px
+  'tab-land': 75em,
+  // 1200px
+  'max-width': $max-width,
+  // 1520px
+  'big-desktop': 112.5em,
+  // 1800px +,,,,,,,,
+);
+$icomoon-font-family: 'crito' !default;
+$icomoon-font-path: '/src/font' !default;
+$icons: (
+  arrow-right: '\e900',
+  arrowup: '\e901',
+  linkedin: '\e902',
+  twitter: '\e903',
+  facebook: '\e904',
+  instagram: '\e905',
+  message-filled: '\e906',
+  phone-filled: '\e907',
+  location-filled: '\e908',
+  quote: '\e909',
+  search: '\e90a',
+  star: '\e90b',
+  intelligence: '\e90c',
+  vector: '\e90d',
+  hexagon: '\e90e',
+  motivation: '\e90f',
+  bars: '\e910',
+  risk: '\e911',
+  idea: '\e912',
+  handshake: '\e913',
+  location: '\e914',
+  message: '\e915',
+  phone: '\e916',
+);

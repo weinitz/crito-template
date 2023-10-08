@@ -1,0 +1,38 @@
+.about {
+  .container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .image-box {
+    position: relative;
+    inline-size: 50%;
+  }
+
+  img {
+    aspect-ratio: 533/615;
+    object-fit: cover;
+  }
+
+  .info-box {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: -50px; /* Adjust the value as needed */
+    padding: 10px;
+
+    //background-color: $babyBlue;
+    transform: translateY(-50%);
+  }
+
+  .flexbox {
+    display: flex;
+    flex-direction: row;
+    inline-size: 50%;
+  }
+
+  .column {
+    flex: 1;
+    padding: 10px;
+
+    //    background-color: lightgray;
+  }
+}

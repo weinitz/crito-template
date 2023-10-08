@@ -1,0 +1,53 @@
+.testimonial {
+  background-color: white;
+  .icon-star {
+    color: $icon-star-color;
+  }
+
+  .testimonial-container {
+    display: flex;
+    gap: 5%;
+  }
+
+  .box {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+  }
+
+  .stars {
+    margin-block-end: 10px;
+  }
+
+  .quote {
+    // width: 173px;
+    margin-block-end: 31px;
+  }
+
+  .profile {
+    display: flex;
+    align-items: center;
+  }
+
+  .profile img {
+    inline-size: 50px;
+    block-size: 50px;
+    margin-inline-end: 10px;
+    border-radius: 50%;
+  }
+
+  .name {
+    font-family: $font-family-secondary;
+    font-size: 22px;
+    font-weight: $font-weight-bold;
+  }
+
+  .job-title {
+    color: $icon-star-color;
+  }
+
+  .name,
+  .job-title {
+    align-self: flex-start;
+  }
+}

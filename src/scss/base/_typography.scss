@@ -1,0 +1,707 @@
+/**
+ * Mixin Name: Hero-Headline
+ * Description: Defines the styling for a hero headline.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-secondary.
+ * - font-size: Sets the font size to 96px.
+ * - font-weight: Applies a bold font weight.
+ * - line-height: Sets the line height to 1.04.
+ * - letter-spacing: Adjusts the letter spacing to -1.92px.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin hero-headline {
+  font-family: $font-family-secondary;
+
+  //  font-size: 96px;
+  font-size: clamp(1rem, 4.2rem + 1.5vw, 6rem);
+  font-weight: bold;
+  line-height: 1.04;
+  color: $cod-gray;
+  letter-spacing: -1.92px;
+}
+
+/**
+ * Mixin Name: Header-Headline
+ * Description: Defines the styling for a header headline.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-secondary.
+ * - font-size: Sets the font size to 56px.
+ * - font-weight: Applies a bold font weight.
+ * - line-height: Sets the line height to 1.14.
+ * - letter-spacing: Adjusts the letter spacing to -1.12px.
+ * - text-align: Centers the text.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin header-headline {
+  font-family: $font-family-secondary;
+  font-size: 56px;
+  font-weight: bold;
+  line-height: 1.14;
+  color: $cod-gray;
+  text-align: center;
+  letter-spacing: -1.12px;
+}
+
+/**
+ * Mixin Name: Section-Headline-Why-Choose-Us-Testimonial-article-Contact
+ * Description: Defines the styling for a section headline in the Why Choose Us, Testimonial, Article, and Contact sections.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-secondary.
+ * - font-size: Sets the font size to 45px.
+ * - font-weight: Applies a bold font weight.
+ * - line-height: Sets the line height to 1.22.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin section-headline-primary {
+  font-family: $font-family-secondary;
+  font-size: 45px;
+  font-weight: bold;
+  line-height: 1.22;
+  color: $cod-gray;
+}
+
+/**
+ * Mixin Name: Section-Headline--About-Services-Features
+ * Description: Defines the styling for a section headline in the About, Services, and Features sections.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-secondary.
+ * - font-size: Sets the font size to 45px.
+ * - font-weight: Applies a bold font weight.
+ * - line-height: Sets the line height to 1.2.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin section-headline-secondary {
+  font-family: $font-family-secondary;
+  font-size: 45px;
+  font-weight: bold;
+  line-height: 1.2;
+  color: $cod-gray;
+}
+
+/**
+ * Mixin Name: Footer-Title
+ * Description: Defines the styling for a footer title.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-secondary.
+ * - font-size: Sets the font size to 22px.
+ * - font-weight: Applies a bold font weight.
+ * - line-height: Sets the line height to 1.5.
+ * - color: Defines the text color as $white.
+ */
+@mixin footer-title {
+  font-family: $font-family-secondary;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: $white;
+}
+
+/**
+ * Mixin Name: About-Quote-Name
+ * Description: Defines the styling for the name in an about quote section.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-secondary.
+ * - font-size: Sets the font size to 20px.
+ * - font-weight: Applies a bold font weight.
+ * - line-height: Sets the line height to 1.5.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin about-quote-name {
+  font-family: $font-family-secondary;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: $cod-gray;
+}
+
+/**
+ * Mixin Name: Hero-Text
+ * Description: Defines the styling for the hero text.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 20px.
+ * - line-height: Sets the line height to 1.6.
+ * - letter-spacing: Adjusts the letter spacing to -0.2px.
+ * - color: Defines the text color as $cod-gray-70.
+ */
+@mixin hero-text {
+  font-family: $font-family-primary;
+  font-size: 20px;
+  line-height: 1.6;
+  color: $cod-gray-70;
+  letter-spacing: -0.2px;
+}
+
+/**
+ * Mixin Name: Testimonial-Quote
+ * Description: Defines the styling for a testimonial quote.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 18px.
+ * - font-weight: Applies a font weight of 600.
+ * - font-style: Applies an italic font style.
+ * - line-height: Sets the line height to 1.89.
+ * - letter-spacing: Adjusts the letter spacing to -0.18px.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin testimonial-quote {
+  font-family: $font-family-primary;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.89;
+  color: $cod-gray;
+  letter-spacing: -0.18px;
+}
+
+/**
+ * Mixin Name: Section-Title
+ * Description: Defines the styling for a section title.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 18px.
+ * - font-weight: Applies a font weight of 500.
+ * - line-height: Sets the line height to 1.22.
+ * - letter-spacing: Adjusts the letter spacing to -0.18px.
+ * - color: Defines the text color as $pomegranate.
+ */
+@mixin section-title {
+  font-family: $font-family-primary;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.22;
+  color: $pomegranate;
+  letter-spacing: -0.18px;
+}
+
+/**
+ * Mixin Name: card-title
+ * Description: Defines the styling for a card title in the feature services, why us, and project sections.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-secondary.
+ * - font-size: Sets the font size to 22px.
+ * - font-weight: Applies a bold font weight.
+ * - line-height: Sets the line height to 1.5.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin card-title {
+  font-family: $font-family-secondary;
+
+  //  font-size: 22px;
+  font-size: 1.375rem;
+  font-weight: bold;
+  line-height: 1.5;
+  color: $cod-gray;
+}
+
+/**
+ * Mixin Name: Contact-Card-Text
+ * Description: Defines the styling for the text in a contact card.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 18px.
+ * - line-height: Sets the line height to 1.56.
+ * - letter-spacing: Adjusts the letter spacing to -0.18px.
+ * - color: Defines the text color as $cod-gray-80.
+ */
+@mixin contact-card-text {
+  font-family: $font-family-primary;
+  font-size: 18px;
+  line-height: 1.56;
+  color: $cod-gray-80;
+  letter-spacing: -0.18px;
+}
+
+/**
+ * Mixin Name: About-Quote-Profession
+ * Description: Defines the styling for the profession in an about quote section.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-secondary.
+ * - font-size: Sets the font size to 16px.
+ * - font-weight: Applies a bold font weight.
+ * - line-height: Sets the line height to 1.88.
+ * - color: Defines the text color as $pomegranate.
+ */
+@mixin about-quote-profession {
+  font-family: $font-family-secondary;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.88;
+  color: $pomegranate;
+}
+
+/**
+ * Mixin Name: button-text
+ * Description: Defines the styling for button text.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - font-weight: Applies a font weight of 600.
+ * - line-height: Sets the line height to 1.
+ * - text-align: Centers the text.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin button-text {
+  font-family: $font-family-primary;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  color: $cod-gray;
+  text-align: center;
+}
+
+/**
+ * Mixin Name: Button-Dark
+ * Description: Defines the styling for a dark-themed button.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - font-weight: Applies a font weight of 600.
+ * - line-height: Sets the line height to 1.
+ * - text-align: Centers the text.
+ * - color: Defines the text color as $white.
+ */
+@mixin button-dark {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  color: $white;
+  text-align: center;
+}
+
+/**
+ * Mixin Name: Team-Profession
+ * Description: Defines the styling for the profession in a team section.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - font-weight: Applies a font weight of 500.
+ * - line-height: Sets the line height to 1.75.
+ * - letter-spacing: Adjusts the letter spacing to -0.16px.
+ * - color: Defines the text color as $cod-gray-70.
+ */
+@mixin team-profession {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: $cod-gray-70;
+  letter-spacing: -0.16px;
+}
+
+/**
+ * Mixin Name: Header-Menu-Active
+ * Description: Defines the styling for an active item in the header menu.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - font-weight: Applies a font weight of 500.
+ * - line-height: Sets the line height to 1.63.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin header-menu-active {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.63;
+  color: $cod-gray;
+}
+
+/**
+ * Mixin Name: Footer-Link
+ * Description: Defines the styling for a link in the footer.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - font-weight: Applies a font weight of 500.
+ * - line-height: Sets the line height to 2.5.
+ * - color: Defines the text color as $white-70.
+ */
+@mixin footer-link {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  color: $white-70;
+}
+
+/**
+ * Mixin Name: Testimonial-Proffession
+ * Description: Defines the styling for the profession in a testimonial section.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - line-height: Sets the line height to 1.75.
+ * - letter-spacing: Adjusts the letter spacing to -0.16px.
+ * - color: Defines the text color as $pomegranate.
+ */
+@mixin testimonial-proffession {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  line-height: 1.75;
+  color: $pomegranate;
+  letter-spacing: -0.16px;
+}
+
+/**
+ * Mixin Name: Service-Why-Text-Article-Date-Month-Article-text
+ * Description: Defines the styling for the text in a service, why us, article, date, month, and article text.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - line-height: Sets the line height to 1.75.
+ * - letter-spacing: Adjusts the letter spacing to -0.16px.
+ * - color: Defines the text color as $cod-gray-70.
+ */
+@mixin text-primary {
+  font-family: $font-family-primary;
+
+  //  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: $cod-gray-70;
+
+  //  letter-spacing: -0.16px;
+  letter-spacing: -0.01em;
+}
+
+/**
+ * Mixin Name: Feature-Text
+ * Description: Defines the styling for feature text.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - line-height: Sets the line height to 1.56.
+ * - letter-spacing: Adjusts the letter spacing to -0.16px.
+ * - color: Defines the text color as $cod-gray-70.
+ */
+@mixin feature-text {
+  font-family: $font-family-primary;
+
+  //  font-size: 16px;
+  font-size: 1rem;
+  font-weight: $font-weight-regular;
+  line-height: 1.56;
+  color: $cod-gray-70;
+
+  //letter-spacing: -0.16px;
+  letter-spacing: -0.01em;
+}
+
+/**
+ * Mixin Name: about-text
+ * Description: Defines the styling for the text in an about section.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - line-height: Sets the line height to 2.
+ * - letter-spacing: Adjusts the letter spacing to -0.16px.
+ * - color: Defines the text color as $cod-gray-70.
+ */
+@mixin about-text {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  line-height: 2;
+  color: $cod-gray-70;
+  letter-spacing: -0.16px;
+}
+
+/**
+ * Mixin Name: About-Quoute-Text
+ * Description: Defines the styling for the text in an about quote section.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - font-weight: Applies a font weight of 500.
+ * - font-style: Applies an italic font style.
+ * - line-height: Sets the line height to 1.63.
+ * - letter-spacing: Adjusts the letter spacing to -0.16px.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin about-quoute-text {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.63;
+  color: $cod-gray;
+  letter-spacing: -0.16px;
+}
+
+/**
+ * Mixin Name: Input-Placeholder
+ * Description: Defines the styling for the placeholder text in an input field.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - line-height: Sets the line height to 1.
+ * - text-align: Centers the text.
+ * - color: Defines the text color as $cod-gray-50.
+ */
+@mixin input-placeholder {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  line-height: 1;
+  color: $cod-gray-50;
+  text-align: center;
+}
+
+/**
+ * Mixin Name: Header-menu
+ * Description: Defines the styling for the header menu.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - line-height: Sets the line height to 1.63.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin header-menu {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  line-height: 1.63;
+  color: $cod-gray;
+}
+
+/**
+ * Mixin Name: Footer-Text
+ * Description: Defines the styling for the text in the footer.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - line-height: Sets the line height to 1.63.
+ * - color: Defines the text color as $white-70.
+ */
+@mixin footer-text {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  line-height: 1.63;
+  color: $white-70;
+}
+
+/**
+ * Mixin Name: Article-Topic
+ * Description: Defines the styling for an article topic.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - line-height: Sets the line height to 1.63.
+ * - color: Defines the text color as $nevada.
+ */
+@mixin article-topic {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  line-height: 1.63;
+  color: $nevada;
+}
+
+/**
+ * Mixin Name: breadcrumb-link
+ * Description: Defines the styling for a breadcrumb link.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 16px.
+ * - font-weight: Applies a font weight of 300.
+ * - line-height: Sets the line height to 1.56.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin breadcrumb-link {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.56;
+  color: $cod-gray;
+}
+
+/**
+ * Mixin Name: contact-info-text
+ * Description: Defines the styling for contact information.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 15px.
+ * - font-weight: Applies a font weight of 300.
+ * - line-height: Sets the line height to 1.67.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin contact-info-text {
+  font-family: $font-family-primary;
+
+  //  font-size: 15px;
+  font-size: 0.938rem;
+  font-weight: 300;
+  line-height: 1.67;
+  color: $cod-gray;
+
+  i {
+    margin-inline-end: 2px;
+    font-size: 18.75px;
+  }
+}
+
+/**
+ * Mixin Name: Project-Link-Text
+ * Description: Defines the styling for the text in a project link.
+ *
+ * Properties:
+ * - font-family: Specifies the font family as $font-family-primary.
+ * - font-size: Sets the font size to 14px.
+ * - font-weight: Applies a font weight of 500.
+ * - line-height: Sets the line height to 1.14.
+ * - text-align: Centers the text.
+ * - color: Defines the text color as $cod-gray.
+ */
+@mixin project-link-text {
+  font-family: $font-family-primary;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.14;
+  color: $cod-gray;
+  text-align: center;
+}
+
+/**
+ * Basic typography style for copy text
+ */
+html {
+  //font-size: clamp(1rem, 0.4rem + 0.5vw, 2rem);
+}
+
+body {
+  //font-family: $font-family-primary;
+
+  //  @include font-size(16px);
+  //font-size: clamp(1rem, 0.4rem + 0.5vw, 2rem);
+  //  font-weight: $font-weight-regular;
+  //  line-height: 1.5;
+  //  color: $text-color;
+  @include text-primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block-start: 0;
+  font-family: $font-family-secondary;
+  line-height: 1;
+}
+
+.headline-show-case {
+  /*
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin: 0;
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-bold;
+  line-height: 1.0417;
+  letter-spacing: -0.02em;
+  @include font-size(96px);
+  */
+
+  @include hero-headline;
+}
+
+.show-case-paragraph {
+  /*
+  margin-top: 11px;
+  margin-bottom: 53px;
+  font-family: $font-family-primary;
+  font-size: 20px;
+  color: rgb(25 25 25 / 70%);
+  letter-spacing: -0.01em; */
+  @include hero-text;
+}
+
+.headline-primary {
+  /*  margin-bottom: 40px;
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-extra-bold;
+  @include font-size(45px);
+
+  line-height: 1;
+  */
+  @include section-headline-primary;
+}
+
+.headline-secondary {
+  @include section-headline-secondary;
+}
+
+.feature-box-title {
+  @include card-title;
+}
+
+.feature-box-text {
+  @include feature-text;
+}
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?53ur1z')
+      format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?53ur1z')
+      format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?53ur1z##{$icomoon-font-family}')
+      format('svg');
+  font-display: block;
+}
+
+@each $name, $icon in $icons {
+  .icon-#{$name} {
+    font-family: '#{$icomoon-font-family}' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-transform: none;
+    speak: never;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    &::before {
+      content: $icon;
+    }
+  }
+}
+
+header,
+footer {
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+}

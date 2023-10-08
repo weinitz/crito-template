@@ -1,0 +1,352 @@
+$base-unit: 4px;
+
+/// Button size map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are multipliers
+$sizes: (
+  'extra-small': 0.5,
+  'small': 1,
+  'medium': 1.5,
+  'large': 2,
+  'extra-large': 2.5,
+);
+$breakpoints-b: (
+  'phone-xs': (
+    20em,
+    1,
+  ),
+  // 0 - 320px
+  'phone':
+    (
+      37.5em,
+      1.5,
+    ),
+  // 0 - 600px
+  'tab-port-sm':
+    (
+      48em,
+      2,
+    ),
+  // 768px
+  'tab-port':
+    (
+      56.25em,
+      2.5,
+    ),
+  // 900px
+  'tab-land':
+    (
+      75em,
+      3,
+    ),
+  // 1200px
+  'big-desktop':
+    (
+      112.5em,
+      3.5,
+    ),
+  // 1800px +
+);
+
+@mixin button-size {
+  @each $size-name, $size-multiplier in $sizes {
+    &--#{$size-name} {
+      padding: $base-unit *
+        $size-multiplier
+        ($base-unit * $size-multiplier * 1.5);
+
+      //font-size: $base-unit * $size-multiplier;
+
+      @each $breakpoint-name, $breakpoint in $breakpoints-b {
+        @media (min-width: nth($breakpoint, 1)) {
+          padding: ($base-unit * $size-multiplier * nth($breakpoint, 2))
+            ($base-unit * $size-multiplier * nth($breakpoint, 2) * 1.2);
+
+          //font-size: $base-unit * $size-multiplier * nth($breakpoint, 2);
+        }
+      }
+    }
+  }
+
+  &--flat {
+    padding-block-start: 0;
+    padding-block-end: 0;
+  }
+}
+
+// Definiera mixins för storlek, stil och form
+@mixin size($value) {
+  $padding: 0;
+  $font-size: $button-small-font-size;
+
+  @if $value == 'large' {
+    $padding: $button-large-padding;
+    $font-size: $button-large-font-size;
+  } @else if $value != 'flat' {
+    $padding: $button-small-padding;
+  }
+
+  &:not(&--round) {
+    padding: $padding;
+  }
+
+  &--round {
+    padding: nth($padding, 1);
+  }
+
+  font-size: $font-size;
+}
+
+@mixin style($value) {
+  i {
+    color: map-get($value, text-color);
+  }
+
+  color: map-get($value, text-color);
+  background-color: map-get($value, bg-color);
+  @if  map-get($value, border-color) {
+    border: 1px solid map-get($value, border-color);
+  }
+
+  &:hover {
+    i {
+      color: map-get($value, hover-text-color);
+    }
+
+    color: map-get($value, hover-text-color);
+    background-color: map-get($value, hover-bg-color);
+  }
+}
+
+// Definiera en karta för varje stil
+$styles: (
+  'default': (
+    text-color: $button-default-text-color,
+    bg-color: $button-default-bg-color,
+    border-color: $button-default-border-color,
+    hover-text-color: $button-secondary-text-color,
+    hover-bg-color: $button-secondary-bg-color,
+  ),
+  'primary': (
+    text-color: $button-primary-text-color,
+    bg-color: $button-primary-bg-color,
+    hover-text-color: $button-secondary-text-color,
+    hover-bg-color: $button-secondary-bg-color,
+  ),
+  'secondary': (
+    text-color: $button-secondary-text-color,
+    bg-color: $button-secondary-bg-color,
+    hover-text-color: $button-tertiary-text-color,
+    hover-bg-color: $button-tertiary-bg-color,
+  ),
+  'tertiary': (
+    text-color: $button-tertiary-text-color,
+    bg-color: $button-tertiary-bg-color,
+    hover-text-color: $button-secondary-text-color,
+    hover-bg-color: $button-secondary-bg-color,
+  ),
+);
+@mixin shape($shape) {
+  @if $shape == 'round' {
+    display: inline-block;
+
+    //    aspect-ratio: 1;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50%;
+    line-height: 1;
+
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: 20px;
+      font-size: 16px;
+      block-size: 20px;
+    }
+  } @else {
+    border-radius: $button-default-border-radius;
+
+    i {
+      margin-inline-start: 8px;
+      font-size: 0.9em;
+    }
+  }
+}
+
+// Använd BEM för att strukturera din CSS
+.button {
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  @include button-text;
+
+  cursor: pointer;
+  user-select: none;
+
+  &:focus-visible,
+  &:hover {
+    text-decoration: none;
+    outline: 0;
+    box-shadow:
+      0 1px 0 rgba($white, 0.15),
+      0 1px 1px rgba($cod-gray, 0.075);
+  }
+
+  @include button-size;
+
+  /*
+  &--small {
+    @include size('small');
+  }
+
+  &--medium {
+    @include size('medium');
+  }
+
+  &--large {
+    @include size('large');
+  } */
+
+  &--default {
+    @include style(map-get($styles, 'default'));
+  }
+
+  &--primary {
+    @include style(map-get($styles, 'primary'));
+  }
+
+  &--secondary {
+    @include style(map-get($styles, 'secondary'));
+  }
+
+  &--tertiary {
+    @include style(map-get($styles, 'tertiary'));
+  }
+
+  &:not(&--round) {
+    @include shape(default);
+  }
+
+  &--round {
+    @include shape(round);
+
+    display: inline-flex;
+    margin-inline-start: 0;
+  }
+}
+
+/*
+@mixin button-style {
+  padding: $button-padding;
+  font-size: $button-large-font-size;
+  font-weight: $button-font-weight;
+  border-radius: $button-default-border-radius;
+
+  i {
+    margin-inline-start: 8px;
+    font-size: 0.9em;
+  }
+}
+
+@mixin button-colors($button-color, $button-bg-color, $button-border-color) {
+  color: $button-color;
+  background-color: $button-bg-color;
+  border: 1px solid $button-border-color;
+}
+
+.button {
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.--small {
+    padding: $button-small-padding;
+  }
+
+  &--default {
+    @include button-style;
+    @include button-colors(
+      $button-default-text-color,
+      $button-default-bg-color,
+      $button-default-text-color
+    );
+
+    &:hover {
+      @include button-colors(
+        $button-secondary-text-color,
+        $button-secondary-bg-color,
+        $button-secondary-text-color
+      );
+    }
+  }
+
+  &--primary {
+    @include button-style;
+    @include button-colors(
+      $button-primary-text-color,
+      $button-primary-bg-color,
+      $button-primary-bg-color
+    );
+
+    &:hover {
+      @include button-colors(
+        $button-secondary-text-color,
+        $button-secondary-bg-color,
+        $button-secondary-text-color
+      );
+    }
+  }
+
+  &--secondary {
+    @include button-style;
+    @include button-colors(
+      $button-secondary-text-color,
+      $button-secondary-bg-color,
+      $button-secondary-text-color
+    );
+
+    &:hover {
+      @include button-colors(
+        $button-tertiary-text-color,
+        $button-tertiary-bg-color,
+        $white
+      );
+    }
+  }
+
+  &--tertiary {
+    @include button-style;
+    @include button-colors(
+      $button-tertiary-text-color,
+      $button-tertiary-bg-color,
+      $white
+    );
+  }
+
+  &--round {
+    display: inline-block;
+    aspect-ratio: 1;
+    padding: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50%;
+
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: 20px;
+      margin-inline: 0;
+      font-size: 16px;
+      block-size: 20px;
+    }
+  }
+}
+*/

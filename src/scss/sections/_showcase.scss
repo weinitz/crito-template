@@ -1,0 +1,69 @@
+#showcase {
+  padding-top: 53px;
+  background-color: $section-showcase-bg-color;
+
+  .container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+
+    .content {
+//      padding-top: $padding-base;
+      padding-bottom: $padding-base;
+      padding-left: 0;
+      padding-right:0;
+      text-align: center;
+      padding-top: 65px;
+
+      @media (min-width: $breakpoint-md) {
+        text-align: left;
+      }
+/*
+      h1 {
+        font-family: $font-family-secondary;
+        font-size: $font-size-h1-showcase;
+        font-weight: $font-weight-bold;
+
+        @media (min-width: $breakpoint-md) {
+          font-size: $font-size-h1-md-showcase;
+        }
+
+        @media (width >= 1400px) {
+          font-size: $font-size-h1-lg-showcase;
+        }
+      }*/
+
+      /*
+      p {
+        padding: $padding-base 10px;
+        font-size: $font-size-p-showcase;
+
+        @media (min-width: $breakpoint-md) {
+          padding: $padding-base 0;
+          font-size: $font-size-p-md-showcase;
+        }
+      }*/
+
+      a {
+        display: block;
+        margin-right: 0;
+        margin-bottom: $margin-bottom-a-showcase;
+
+        @media (min-width: $breakpoint-md) {
+          display: inline-block;
+          margin-right: $margin-right-a-showcase;
+        }
+      }
+    }
+
+    img {
+      display: none;
+      margin-right: $margin-right-img-showcase;
+
+      @media (min-width: $breakpoint-md) {
+        display: block;
+      }
+    }
+  }
+}
+

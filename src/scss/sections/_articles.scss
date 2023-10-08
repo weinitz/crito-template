@@ -1,0 +1,8 @@
+#articles {
+  .cards-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+  }
+
+.card__image {  max-height: 230px; }
+}
