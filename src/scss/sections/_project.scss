@@ -2,17 +2,18 @@
 //  gap: 30px;
   gap: 1.875rem;
 
-  .card > .card__button {
+  article > .card__button {
     font-weight: $font-weight-medium;
     border: 0;
     @include font-size(14px);
+    float:right;
   }
 
-  .card > .card__title {
-    @extend .headline-secondary;
-    @include padding-top(35px);
-    @include padding-bottom(16px);
-
+  article > .card__title {
+    //@extend .headline-secondary;
+    //@include padding-top(35px);
+    //@include padding-bottom(16px);
+    @include card-title;
     border-bottom: 2px solid $project-headline-border-color;
   }
 }

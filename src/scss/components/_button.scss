@@ -236,6 +236,10 @@ $styles: (
     display: inline-flex;
     margin-inline-start: 0;
   }
+
+  &--link {
+    border:none;
+  }
 }
 
 /*
@@ -350,3 +354,20 @@ $styles: (
   }
 }
 */
+
+@mixin transition($args...) {
+  transition: $args;
+}
+
+@mixin hover-effect {
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+}
+
+.button {
+  @include transition(all 0.3s ease-in-out);
+  @include hover-effect;
+}

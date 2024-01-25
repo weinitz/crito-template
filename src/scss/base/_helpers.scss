@@ -29,11 +29,17 @@ section > .container > *:not(.card-list) {
   max-width: $max-width; /* 1 */
   margin-right: auto; /* 2 */
   margin-left: auto; /* 2 */
-
+  padding-left: 100px;
+  padding-right: 100px;
   //.button {
   //  margin-right: 20px;
   //  margin-left: 20px;
   //}
+}
+
+section + section > .container {
+  padding-top:50px;
+  padding-bottom:50px;
 }
 
 @include respond-to(big-desktop) {
@@ -80,8 +86,4 @@ section > .container > *:not(.card-list) {
   overflow: hidden;
   clip: rect(0 0 0 0);
   border: 0;
-}
-
-* {
-  //  border: 1px solid #000 !important;
 }
